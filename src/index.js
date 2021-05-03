@@ -1,6 +1,13 @@
 require("dotenv").config();
 const app = require("./app");
+const knex = require("./database/config");
+const tables = require("./database/tables");
 
-app.listen(process.env.PORT, () =>
-  console.log("listening on port " + process.env.PORT)
-);
+async function start() {
+  await tables(knex);
+  app.listen(process.env.PORT, () =>
+    console.log("listening on port " + process.env.PORT)
+  );
+}
+
+start();
