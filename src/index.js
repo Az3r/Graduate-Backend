@@ -1,6 +1,6 @@
 require("dotenv").config();
 const app = require("./app");
-const knex = require("./database/config");
+const knex = require("./knex/config");
 const tables = require("./database/tables");
 
 async function start() {
